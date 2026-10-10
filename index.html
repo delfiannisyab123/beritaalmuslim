@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic News Studio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <main class="studio" id="studio">
+
+        <!-- Background dekorasi -->
+        <div class="background-grid"></div>
+        <div class="light-beam beam-one"></div>
+        <div class="light-beam beam-two"></div>
+        <div class="light-line line-one"></div>
+        <div class="light-line line-two"></div>
+
+        <!-- Bagian kiri: logo -->
+        <section class="panel-logo">
+
+            <div class="globe">
+                <div class="globe-inner"></div>
+                <div class="globe-ring ring-one"></div>
+                <div class="globe-ring ring-two"></div>
+                <div class="globe-ring ring-three"></div>
+                <div class="globe-orbit"></div>
+            </div>
+
+            <div class="logo-box">
+               <img id="fotoPreview" src="img/logoalmuslim.jpeg" alt="Foto landscape">
+            </div>
+
+            <div class="logo-caption">
+                <span class="status-dot"></span>
+                DIGITAL BROADCAST
+            </div>
+
+        </section>
+
+        <!-- Bagian kanan: layar foto -->
+        <section class="panel-foto">
+
+            <div class="screen-header">
+                <span class="screen-status">
+                    <span class="status-dot"></span>
+                    LIVE DISPLAY
+                </span>
+                <span class="screen-number">01 / SCREEN</span>
+            </div>
+
+            <div class="bingkai">
+
+                <img id="fotoPreview" src="imgberita/rapat.jpeg" alt="Foto landscape">
+                <div id="fotoText" class="photo-placeholder">
+                </div>
+
+                <div class="screen-corner corner-tl"></div>
+                <div class="screen-corner corner-tr"></div>
+                <div class="screen-corner corner-bl"></div>
+                <div class="screen-corner corner-br"></div>
+
+            </div>
+
+            <div class="screen-footer">
+                <span>VISUAL OUTPUT</span>
+                <span class="signal-bars">
+                    <i></i><i></i><i></i><i></i><i></i>
+                </span>
+                <span>16:9</span>
+            </div>
+
+        </section>
+
+        <!-- Dekorasi bawah -->
+        <div class="bottom-line"></div>
+
+        <div class="studio-label">
+            <span>NS</span>
+            <div>
+                <strong>NEWS STUDIO</strong>
+                <small>FUTURE BROADCAST SYSTEM</small>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Panel kontrol -->
+    <section class="kontrol" id="kontrol">
+
+        <div class="control-heading">
+            <div>
+                <span class="eyebrow">CONTROL CENTER</span>
+                <h1>Pengaturan Studio</h1>
+                <p>Atur logo dan foto untuk tampilan studio.</p>
+            </div>
+
+            <span class="online-badge">
+                <span class="status-dot"></span>
+                SYSTEM READY
+            </span>
+        </div>
+
+        <div class="control-buttons">
+
+            <label class="upload-button" for="inputLogo">
+                <span class="button-icon">▣</span>
+                <span>
+                    <strong>Unggah Logo</strong>
+                    <small>Pilih gambar logo</small>
+                </span>
+                <input type="file" id="inputLogo" accept="image/*">
+            </label>
+
+            <label class="upload-button" for="inputFoto">
+                <span class="button-icon">▧</span>
+                <span>
+                    <strong>Unggah Foto</strong>
+                    <small>Foto landscape 16:9</small>
+                </span>
+                <input type="file" id="inputFoto" accept="image/*">
+            </label>
+
+            <button id="fullscreenBtn" class="action-button fullscreen-button">
+                <span>⛶</span>
+                <strong>Fullscreen</strong>
+            </button>
+
+            <button id="resetBtn" class="action-button reset-button">
+                <span>↻</span>
+                <strong>Reset</strong>
+            </button>
+
+        </div>
+
+        <p class="control-note">
+            Tips: gunakan logo PNG transparan agar terlihat lebih rapi.
+            Tekan ESC untuk keluar dari fullscreen.
+        </p>
+
+    </section>
+
+    <script src="script/script.js"></script>
+</body>
+</html>

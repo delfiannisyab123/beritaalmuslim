@@ -1,0 +1,872 @@
+
+:root {
+    --navy: #071426;
+    --navy-light: #102a49;
+    --cyan: #39e8ff;
+    --blue: #087eae;
+    --white: #effaff;
+    --muted: #8faec7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    min-height: 100vh;
+    padding: 30px 20px;
+    background:
+        radial-gradient(ellipse at top, #152943, #080d17 70%);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   STUDIO UTAMA
+========================= */
+
+.studio {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 1200px;
+    aspect-ratio: 16 / 7.5;
+    margin: auto;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 35% 45%,
+            #123d66 0%,
+            #0b2441 38%,
+            #071426 75%,
+            #040a13 100%
+        );
+
+    border: 1px solid #3d7699;
+    box-shadow:
+        0 0 25px #00cfff18,
+        0 20px 55px #0009,
+        inset 0 0 40px #071426;
+}
+
+/* Grid digital */
+.background-grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(#38dfff0c 1px, transparent 1px),
+        linear-gradient(90deg, #38dfff0c 1px, transparent 1px);
+
+    background-size: 36px 36px;
+
+    mask-image: linear-gradient(
+        90deg,
+        black,
+        black 70%,
+        transparent
+    );
+}
+
+/* Cahaya dekoratif */
+.light-beam {
+    position: absolute;
+    z-index: -1;
+    width: 45%;
+    height: 160%;
+    top: -30%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #31dcff0a,
+        #31dcff24,
+        transparent
+    );
+
+    transform: rotate(28deg);
+    pointer-events: none;
+}
+
+.beam-one {
+    left: 5%;
+    animation: beamMove 9s ease-in-out infinite alternate;
+}
+
+.beam-two {
+    left: 48%;
+    opacity: .6;
+    animation: beamMove 12s ease-in-out infinite alternate-reverse;
+}
+
+.light-line {
+    position: absolute;
+    height: 2px;
+    width: 35%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cyan),
+        transparent
+    );
+    box-shadow: 0 0 12px var(--cyan);
+    opacity: .7;
+    pointer-events: none;
+}
+
+.line-one {
+    top: 14%;
+    left: -35%;
+    animation: lineMove 7s linear infinite;
+}
+
+.line-two {
+    bottom: 15%;
+    left: -35%;
+    animation: lineMove 9s linear infinite 2s;
+}
+
+/* =========================
+   PANEL LOGO KIRI
+========================= */
+
+.panel-logo {
+    position: absolute;
+    left: 2%;
+    top: 9%;
+    bottom: 9%;
+    width: 45%;
+
+    overflow: hidden;
+
+    border: 1px solid #38dfff70;
+
+    background:
+        linear-gradient(
+            135deg,
+            #123e62 0%,
+            #0a2949 45%,
+            #071426 100%
+        );
+
+    box-shadow:
+        inset 0 0 30px #1bbde51c,
+        0 0 15px #00cfff12;
+}
+
+.panel-logo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0 22px,
+            #45e6ff0a 23px 24px,
+            transparent 25px 42px
+        );
+
+    pointer-events: none;
+}
+
+/* Globe */
+.globe {
+    position: absolute;
+    width: 76%;
+    aspect-ratio: 1;
+    left: -17%;
+    top: 3%;
+
+    border-radius: 50%;
+    border: 1px solid #48e8ff9c;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #3ee7ff2a,
+            transparent 50%
+        ),
+        repeating-radial-gradient(
+            circle,
+            transparent 0 13px,
+            #3be3ff36 14px 15px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 19px,
+            #3be3ff2b 20px 21px
+        ),
+        radial-gradient(circle, #145486, #081a32 75%);
+
+    box-shadow:
+        0 0 30px #14cfff28,
+        inset 0 0 25px #20dfff24;
+
+    animation: globeRotate 24s linear infinite;
+}
+
+.globe-inner {
+    position: absolute;
+    inset: 12%;
+    border: 1px solid #4ae8ff88;
+    border-radius: 50%;
+    transform: scaleX(.45);
+}
+
+.globe-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid #43dfff65;
+    border-radius: 50%;
+}
+
+.ring-one {
+    transform: rotate(35deg) scaleX(.45);
+}
+
+.ring-two {
+    transform: rotate(-35deg) scaleX(.45);
+}
+
+.ring-three {
+    inset: 23% -10%;
+    transform: rotate(-20deg);
+}
+
+.globe-orbit {
+    position: absolute;
+    inset: -9% -18%;
+    border: 1px solid #43e5ff99;
+    border-radius: 50%;
+    transform: rotate(-28deg);
+}
+
+/* Kotak logo */
+.logo-box {
+    position: absolute;
+    z-index: 2;
+    left: 22%;
+    right: 5%;
+    top: 20%;
+    bottom: 20%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+
+    background: #071426bd;
+    border: 1px solid #63eaff;
+
+    box-shadow:
+        0 0 20px #00d9ff1b,
+        inset 0 0 20px #00d9ff0c;
+    
+    border-radius: 50%;
+}
+
+.logo-box img {
+    display: block;
+    filter: drop-shadow(0 3px 5px #0008);
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.placeholder-icon {
+    color: var(--cyan);
+    font-size: clamp(25px, 4vw, 52px);
+    text-shadow: 0 0 15px #39e8ff77;
+}
+
+.placeholder strong {
+    font-size: clamp(10px, 1.7vw, 22px);
+    letter-spacing: 2px;
+}
+
+.placeholder small {
+    color: var(--muted);
+    font-size: clamp(8px, .9vw, 12px);
+}
+
+/* Label kiri */
+.logo-caption {
+    position: absolute;
+    left: 5%;
+    bottom: 4%;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #9bc9df;
+    font-size: clamp(7px, .8vw, 11px);
+    letter-spacing: 2px;
+}
+
+/* Titik status */
+.status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+}
+
+/* =========================
+   PANEL FOTO KANAN
+========================= */
+
+.panel-foto {
+    position: absolute;
+    z-index: 3;
+
+    right: 3%;
+    top: 7%;
+    width: 48%;
+    height: 77%;
+
+    padding: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #b7d9e6,
+        #49657b 20%,
+        #172b3e 60%,
+        #80afc4
+    );
+
+    border: 1px solid #c0efff;
+
+    box-shadow:
+        0 10px 25px #0009,
+        0 0 18px #23dfff1e;
+}
+
+/* Header layar */
+.screen-header,
+.screen-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 9%;
+    min-height: 14px;
+
+    color: #b7e7f8;
+    font-size: clamp(6px, .7vw, 10px);
+    letter-spacing: 1px;
+}
+
+.screen-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.screen-status .status-dot {
+    width: 5px;
+    height: 5px;
+}
+
+/* Layar hijau */
+.bingkai {
+    position: relative;
+    width: 100%;
+    height: 82%;
+    overflow: hidden;
+
+    background: #20e600;
+    border: 2px solid #111a24;
+
+    box-shadow:
+        inset 0 0 0 1px #9bff8e,
+        0 0 0 1px #293e4c;
+}
+
+.bingkai img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Petunjuk layar */
+.photo-placeholder {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    color: white;
+    text-align: center;
+    text-shadow: 0 2px 5px #12440088;
+}
+
+.photo-icon {
+    font-size: clamp(24px, 4vw, 48px);
+}
+
+.photo-placeholder strong {
+    font-size: clamp(9px, 1.5vw, 18px);
+    letter-spacing: 2px;
+}
+
+.photo-placeholder small {
+    font-size: clamp(7px, .9vw, 12px);
+}
+
+/* Sudut dekoratif layar */
+.screen-corner {
+    position: absolute;
+    z-index: 2;
+    width: 12px;
+    height: 12px;
+    border-color: white;
+    border-style: solid;
+    pointer-events: none;
+}
+
+.corner-tl {
+    top: 4px;
+    left: 4px;
+    border-width: 2px 0 0 2px;
+}
+
+.corner-tr {
+    top: 4px;
+    right: 4px;
+    border-width: 2px 2px 0 0;
+}
+
+.corner-bl {
+    bottom: 4px;
+    left: 4px;
+    border-width: 0 0 2px 2px;
+}
+
+.corner-br {
+    bottom: 4px;
+    right: 4px;
+    border-width: 0 2px 2px 0;
+}
+
+/* Footer layar */
+.signal-bars {
+    display: flex;
+    align-items: end;
+    gap: 2px;
+    height: 12px;
+}
+
+.signal-bars i {
+    display: block;
+    width: 3px;
+    background: var(--cyan);
+}
+
+.signal-bars i:nth-child(1) { height: 4px; }
+.signal-bars i:nth-child(2) { height: 7px; }
+.signal-bars i:nth-child(3) { height: 10px; }
+.signal-bars i:nth-child(4) { height: 6px; }
+.signal-bars i:nth-child(5) { height: 12px; }
+
+/* Garis bawah studio */
+.bottom-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #39e8ff,
+        #0b6094,
+        transparent
+    );
+
+    box-shadow: 0 0 12px #39e8ff;
+}
+
+/* Branding studio */
+.studio-label {
+    position: absolute;
+    left: 2.5%;
+    bottom: 4%;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.studio-label > span {
+    display: grid;
+    place-items: center;
+
+    width: 27px;
+    height: 27px;
+
+    color: var(--cyan);
+    font-weight: bold;
+
+    border: 1px solid var(--cyan);
+    background: #0b263e;
+}
+
+.studio-label strong,
+.studio-label small {
+    display: block;
+}
+
+.studio-label strong {
+    font-size: clamp(7px, .8vw, 11px);
+    letter-spacing: 2px;
+}
+
+.studio-label small {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: clamp(5px, .55vw, 8px);
+    letter-spacing: 1px;
+}
+
+/* =========================
+   ANIMASI
+========================= */
+
+@keyframes globeRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes lineMove {
+    from {
+        left: -35%;
+    }
+    to {
+        left: 110%;
+    }
+}
+
+@keyframes beamMove {
+    from {
+        transform: translateX(-8%) rotate(28deg);
+        opacity: .3;
+    }
+    to {
+        transform: translateX(20%) rotate(28deg);
+        opacity: .9;
+    }
+}
+
+/* =========================
+   CONTROL CENTER
+========================= */
+
+.kontrol {
+    width: 100%;
+    max-width: 900px;
+    margin: 25px auto 0;
+    padding: 24px;
+
+    background: linear-gradient(145deg, #101f32, #091321);
+    border: 1px solid #254967;
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px #0004;
+}
+
+.control-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.eyebrow {
+    color: var(--cyan);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.control-heading h1 {
+    margin-top: 7px;
+    font-size: 25px;
+}
+
+.control-heading p {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.online-badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 9px 12px;
+
+    color: var(--cyan);
+    background: #39e8ff0b;
+    border: 1px solid #39e8ff38;
+    border-radius: 5px;
+
+    font-size: 10px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.control-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+/* Tombol kontrol */
+.upload-button,
+.action-button {
+    min-height: 62px;
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border: 1px solid #31516c;
+    border-radius: 7px;
+
+    background: #12283e;
+    color: var(--white);
+
+    font-family: inherit;
+    cursor: pointer;
+
+    transition:
+        background .2s,
+        border-color .2s,
+        transform .2s;
+}
+
+.upload-button:hover,
+.action-button:hover {
+    background: #193b58;
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+}
+
+.upload-button input {
+    display: none;
+}
+
+.upload-button span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+.upload-button strong,
+.action-button strong {
+    font-size: 12px;
+}
+
+.upload-button small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.button-icon {
+    color: var(--cyan);
+    font-size: 22px;
+}
+
+.action-button > span {
+    font-size: 22px;
+    color: var(--cyan);
+}
+
+.fullscreen-button {
+    border-color: #168db0;
+    background: #0b344b;
+}
+
+.reset-button {
+    background: #292333;
+    border-color: #57415d;
+}
+
+.reset-button > span {
+    color: #d9a6ff;
+}
+
+.control-note {
+    margin-top: 17px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* =========================
+   MODE FULLSCREEN
+========================= */
+
+.studio:fullscreen {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    aspect-ratio: auto;
+    margin: 0;
+    border: none;
+    background-color: var(--navy);
+}
+
+.studio:fullscreen .panel-logo {
+    top: 8%;
+    bottom: 8%;
+}
+
+.studio:fullscreen .panel-foto {
+    top: 7%;
+    height: 80%;
+}
+
+body:has(.studio:fullscreen) {
+    padding: 0;
+    overflow: hidden;
+}
+
+body:has(.studio:fullscreen) .kontrol {
+    display: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 760px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .studio {
+        aspect-ratio: 4 / 3;
+    }
+
+    .panel-logo {
+        top: 14%;
+        bottom: 14%;
+        width: 47%;
+    }
+
+    .globe {
+        width: 90%;
+        left: -25%;
+    }
+
+    .logo-box {
+        left: 12%;
+        right: 4%;
+        top: 24%;
+        bottom: 24%;
+        padding: 4%;
+    }
+
+    .panel-foto {
+        top: 18%;
+        width: 49%;
+        height: 49%;
+        right: 2%;
+        padding: 4px;
+    }
+
+    .logo-caption {
+        bottom: 5%;
+        letter-spacing: 1px;
+    }
+
+    .studio-label {
+        bottom: 3%;
+    }
+
+    .control-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .control-heading h1 {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 420px) {
+    .kontrol {
+        padding: 16px;
+    }
+
+    .control-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .online-badge {
+        align-self: flex-start;
+    }
+
+    .upload-button,
+    .action-button {
+        padding: 9px;
+        gap: 6px;
+    }
+
+    .upload-button strong,
+    .action-button strong {
+        font-size: 11px;
+    }
+}
+
+/* Menghormati pengaturan minim animasi */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
