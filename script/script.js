@@ -7,10 +7,16 @@ const resetBtn = document.getElementById("resetBtn");
 // FUNGSI UNGGAH GAMBAR
 // =========================
 
-function tampilkanGambar(inputId, gambarId, teksId) {
+
+function pasangUpload(inputId, gambarId, teksId) {
     const input = document.getElementById(inputId);
     const gambar = document.getElementById(gambarId);
     const teks = document.getElementById(teksId);
+
+    if (!input || !gambar) {
+        console.error("Elemen tidak ditemukan:", inputId, gambarId);
+        return;
+    }
 
     input.addEventListener("change", function () {
         const file = this.files[0];
@@ -18,40 +24,30 @@ function tampilkanGambar(inputId, gambarId, teksId) {
         if (!file) return;
 
         if (!file.type.startsWith("image/")) {
-            alert("Silakan pilih file gambar yang valid.");
-            this.value = "";
+            alert("Silakan pilih file gambar.");
             return;
         }
 
         const reader = new FileReader();
 
-        reader.onload = function (event) {
-            gambar.src = event.target.result;
+        reader.onload = function (e) {
+            gambar.src = e.target.result;
             gambar.hidden = false;
-            teks.hidden = true;
-        };
 
-        reader.onerror = function () {
-            alert("Gambar gagal dibaca. Silakan coba lagi.");
+            if (teks) {
+                teks.hidden = true;
+            }
         };
 
         reader.readAsDataURL(file);
     });
 }
 
-// Unggah logo
-tampilkanGambar(
-    "inputLogo",
-    "logoPreview",
-    "logoText"
-);
+// Upload logo hanya mengubah logo
+pasangUpload("inputLogo", "logoPreview", "logoText");
 
-// Unggah foto landscape
-tampilkanGambar(
-    "inputFoto",
-    "fotoPreview",
-    "fotoText"
-);
+// Upload landscape hanya mengubah foto landscape
+pasangUpload("inputFoto", "fotoPreview", "fotoText");
 
 // =========================
 // FUNGSI FULLSCREEN
